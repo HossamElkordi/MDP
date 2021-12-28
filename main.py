@@ -15,9 +15,9 @@ def main(r: int, discount: float, method: str):
     vals, pols = get_val_pol_mat(v)
     print(iterations, 'iterations')
     print('Values:')
-    print(vals[0][0], "\t", vals[0][1], "\t\t", vals[0][2], "\n")
-    print(vals[1][0], "\t", vals[1][1], "\t\t", vals[1][2], "\n")
-    print(vals[0][2], "\t", vals[2][1], "\t\t", vals[2][2], "\n")
+    print(vals[0][0], "\t", vals[0][1], "\t\t", vals[0][2])
+    print(vals[1][0], "\t", vals[1][1], "\t\t", vals[1][2])
+    print(vals[0][2], "\t", vals[2][1], "\t\t", vals[2][2])
     print('======================================================')
     print('Policies:')
     print(pols[0])
@@ -168,5 +168,5 @@ def init_mem(moves: list) -> dict:
 
 
 if __name__ == '__main__':
-    main(-3, 0.99, "value")
+    main(10, 0.99, "policy")
 
