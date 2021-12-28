@@ -2,17 +2,27 @@ import operator
 import random
 
 
-def main(r: int, discount: float):
+def main(r: int, discount: float, method: str):
     moves = ['U', 'R', 'D', 'L']
     rewards = init_rewards(r)
-    iterations, v = policy_iteration(rewards, moves, discount)
+    if method=="policy":
+        iterations, v = policy_iteration(rewards, moves, discount)
+    elif method=="value":
+        iterations, v = value_iteration(rewards, moves, discount)
+    else:
+        print("invalid method")
+        return
     vals, pols = get_val_pol_mat(v)
     print(iterations, 'iterations')
     print('Values:')
-    print(vals)
+    print(vals[0])
+    print(vals[1])
+    print(vals[2])
     print('======================================================')
     print('Policies:')
-    print(pols)
+    print(pols[0])
+    print(pols[1])
+    print(pols[2])
 
 
 def value_iteration(r: dict, moves: list, discount: float) -> [int, dict]:
@@ -158,4 +168,5 @@ def init_mem(moves: list) -> dict:
 
 
 if __name__ == '__main__':
-    main(3, 0.99)
+    main(-3, 0.99, "value")
+
